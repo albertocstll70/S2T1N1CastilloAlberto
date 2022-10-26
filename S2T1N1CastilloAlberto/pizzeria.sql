@@ -82,7 +82,6 @@ CREATE TABLE `detalle_pedido` (
   `id_detalle_pedido` int NOT NULL,
   `id_pedido` int NOT NULL,
   `id_producto` int NOT NULL,
-  `precio` decimal(10,2) NOT NULL,
   `cantidad` int NOT NULL,
   PRIMARY KEY (`id_detalle_pedido`),
   KEY `detalle_pedido_ibfk_1` (`id_pedido`),
@@ -98,7 +97,7 @@ CREATE TABLE `detalle_pedido` (
 
 LOCK TABLES `detalle_pedido` WRITE;
 /*!40000 ALTER TABLE `detalle_pedido` DISABLE KEYS */;
-INSERT INTO `detalle_pedido` VALUES (1,1,1,2.10,2),(2,1,3,9.87,1),(3,1,4,9.87,1),(4,2,2,2.10,2),(5,2,7,7.89,2),(6,3,1,2.10,1),(7,3,2,2.10,1),(8,3,6,9.87,1),(9,3,5,8.75,1),(10,4,1,2.10,4),(11,4,7,7.89,2),(12,4,3,9.87,1),(13,4,3,9.87,1);
+INSERT INTO `detalle_pedido` VALUES (1,1,1,2),(2,1,3,1),(3,1,4,1),(4,2,2,2),(5,2,7,2),(6,3,1,1),(7,3,2,1),(8,3,6,1),(9,3,5,1),(10,4,1,4),(11,4,7,2),(12,4,3,1),(13,4,3,1);
 /*!40000 ALTER TABLE `detalle_pedido` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -182,6 +181,7 @@ CREATE TABLE `producto` (
   `imagen` tinyblob,
   `id_categoria` int NOT NULL,
   `id_sub` int DEFAULT NULL,
+  `precio` decimal(10,2) NOT NULL,
   PRIMARY KEY (`id_producto`),
   KEY `id_categoria` (`id_categoria`),
   KEY `id_sub` (`id_sub`),
@@ -196,7 +196,7 @@ CREATE TABLE `producto` (
 
 LOCK TABLES `producto` WRITE;
 /*!40000 ALTER TABLE `producto` DISABLE KEYS */;
-INSERT INTO `producto` VALUES (1,'coca ligth',NULL,101,NULL),(2,'agua 50cl ',NULL,101,NULL),(3,'pizza Barbacoa',NULL,102,2),(4,'4 quesos',NULL,102,1),(5,'Romana',NULL,102,3),(6,'hawaiana',NULL,102,2),(7,'hamburguesa especial',NULL,103,NULL);
+INSERT INTO `producto` VALUES (1,'coca ligth',NULL,101,NULL,2.10),(2,'agua 50cl ',NULL,101,NULL,1.90),(3,'pizza Barbacoa',NULL,102,2,9.87),(4,'4 quesos',NULL,102,1,9.87),(5,'Romana',NULL,102,3,7.89),(6,'hawaiana',NULL,102,2,8.75),(7,'hamburguesa especial',NULL,103,NULL,8.45);
 /*!40000 ALTER TABLE `producto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -289,4 +289,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-10-26  0:17:08
+-- Dump completed on 2022-10-26 15:17:58
